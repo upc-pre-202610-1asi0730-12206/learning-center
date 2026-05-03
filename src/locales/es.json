@@ -2,7 +2,8 @@
   "option": {
     "home": "Inicio",
     "about": "Acerca de",
-    "categories": "Categorías"
+    "categories": "Categorías",
+    "tutorials": "Tutoriales"
   },
   "authoring-phrase": {
     "intro": "Hecho con",
@@ -35,6 +36,25 @@
     "new-title": "Crear Nueva Categoría",
     "edit-title": "Editar Categoría",
     "name": "Nombre",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "tutorials": {
+    "title": "Tutoriales",
+    "id": "ID",
+    "summary": "Resumen",
+    "category-id": "ID de Categoría",
+    "actions": "Acciones",
+    "new": "Nuevo Tutorial",
+    "confirm-delete": "¿Estás seguro de que quieres eliminar {title}?",
+    "delete-header": "Confirmar Eliminación"
+  },
+  "tutorial": {
+    "new-title": "Crear Nuevo Tutorial",
+    "edit-title": "Editar Tutorial",
+    "title": "Título",
+    "summary": "Resumen",
+    "category": "Categoría",
     "save": "Guardar",
     "cancel": "Cancelar"
   },
