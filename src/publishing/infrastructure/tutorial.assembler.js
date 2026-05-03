@@ -1,13 +1,13 @@
 import {Tutorial} from "../domain/model/tutorial.entity.js";
 
 /**
- * Maps publishing tutorial resources into domain entities.
+ * Maps Publishing tutorial resources into domain entities.
  *
  * @class TutorialAssembler
  */
 export class TutorialAssembler {
     /**
-     * @param {Object} resource - Tutorial resource payload.
+     * @param {{id: number|string, title: string, summary: string, categoryId: number|string|null}} resource - Tutorial resource payload.
      * @returns {Tutorial} Tutorial entity.
      */
     static toEntityFromResource(resource) {
@@ -17,7 +17,7 @@ export class TutorialAssembler {
     /**
      * Parses tutorial resources from a response and maps them into entities.
      *
-     * @param {import('axios').AxiosResponse<Array<Object>|Object>} response - HTTP response with tutorial resources.
+     * @param {import('axios').AxiosResponse<Array<{id: number|string, title: string, summary: string, categoryId: number|string|null}>|{tutorials:Array<{id: number|string, title: string, summary: string, categoryId: number|string|null}>}>} response - HTTP response with tutorial resources.
      * @returns {Tutorial[]} Tutorial entities.
      */
     static toEntitiesFromResponse(response) {

@@ -20,15 +20,17 @@ onMounted(() => {
 });
 
 /**
- * Navigate to the new tutorial creation page.
+ * Navigates to the tutorial creation route.
+ * @returns {void}
  */
 const navigateToNew = () => {
   router.push({ name: 'publishing-tutorial-new' });
 };
 
 /**
- * Navigate to the tutorial editing page.
- * @param {number} id - The ID of the tutorial to edit.
+ * Navigates to the tutorial edit route.
+ * @param {number|string} id - Tutorial identifier.
+ * @returns {void}
  */
 const navigateToEdit = (id) => {
   console.log(id);
@@ -36,8 +38,9 @@ const navigateToEdit = (id) => {
 };
 
 /**
- * Confirm and delete a tutorial.
- * @param {Object} tutorial - The tutorial to delete.
+ * Asks for user confirmation before invoking the delete tutorial use case.
+ * @param {import('../../domain/model/tutorial.entity.js').Tutorial} tutorial - Tutorial selected for deletion.
+ * @returns {void}
  */
 const confirmDelete = (tutorial) => {
   confirm.require({

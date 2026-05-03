@@ -7,7 +7,7 @@ import {SignInResource} from "./sign-in.resource.js";
  */
 export class SignInAssembler {
     /**
-     * @param {import('axios').AxiosResponse<Object>} response - HTTP response from sign-in endpoint.
+     * @param {import('axios').AxiosResponse<{id: number|string, username: string, token: string}>} response - HTTP response from sign-in endpoint.
      * @returns {SignInResource|null} Parsed resource when the response is successful; otherwise null.
      */
     static toResourceFromResponse(response) {

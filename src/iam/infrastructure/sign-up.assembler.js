@@ -7,7 +7,7 @@ import {SignUpResource} from "./sign-up.resource.js";
  */
 export class SignUpAssembler {
     /**
-     * @param {import('axios').AxiosResponse<Object>} response - HTTP response from sign-up endpoint.
+     * @param {import('axios').AxiosResponse<{message: string}>} response - HTTP response from sign-up endpoint.
      * @returns {SignUpResource|null} Parsed resource when the response is successful; otherwise null.
      */
     static toResourceFromResponse(response) {

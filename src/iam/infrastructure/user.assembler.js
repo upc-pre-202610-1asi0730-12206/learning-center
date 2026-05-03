@@ -7,7 +7,8 @@ import {User} from "../domain/user.entity.js";
  */
 export class UserAssembler {
     /**
-     * @param {Object} resource - User resource payload.
+     * Maps one user resource into a User entity.
+     * @param {{id: number|string, username: string}} resource - User resource payload.
      * @returns {User} User entity.
      */
     static toEntityFromResource(resource) {
@@ -15,7 +16,7 @@ export class UserAssembler {
     }
     
     /**
-     * @param {import('axios').AxiosResponse<Array<Object>|Object>} response - HTTP response containing user resources.
+     * @param {import('axios').AxiosResponse<Array<{id: number|string, username: string}>|{users:Array<{id: number|string, username: string}>}>} response - HTTP response containing user resources.
      * @returns {User[]} Collection of user entities.
      */
     static toEntitiesFromResponse(response) {

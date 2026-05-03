@@ -2,9 +2,17 @@ import axios from "axios";
 
 const platformApi = import.meta.env.VITE_LEARNING_PLATFORM_API_URL;
 
+/**
+ * Shared infrastructure base class that owns the configured Axios client.
+ * Bounded-context adapters extend this class to access a consistent HTTP gateway.
+ *
+ * @class BaseApi
+ */
 export class BaseApi {
+    /** @type {import('axios').AxiosInstance} */
     #http;
 
+    /** Initializes the shared Axios client with environment-driven configuration. */
     constructor() {
         this.#http = axios.create({
             baseURL: platformApi,
@@ -12,6 +20,10 @@ export class BaseApi {
         });
     }
 
+    /**
+     * Axios client used by infrastructure endpoint adapters.
+     * @returns {import('axios').AxiosInstance}
+     */
     get http() {
         return this.#http;
     }

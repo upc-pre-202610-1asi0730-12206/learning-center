@@ -1,5 +1,5 @@
 /**
- * Command used by the IAM application layer to request authentication.
+ * Command used by IAM application services to request authentication.
  *
  * @class SignInCommand
  */

@@ -1,5 +1,5 @@
 /**
- * IAM user aggregate root representation used by the client domain model.
+ * User entity in the IAM bounded context.
  *
  * @class User
  */

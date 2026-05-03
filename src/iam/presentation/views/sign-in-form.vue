@@ -4,18 +4,21 @@
   import {SignInCommand} from "../../domain/sign-in.command.js";
   import {useRouter} from "vue-router";
 
+  /** Router used to redirect after IAM use-case execution. */
   const router = useRouter();
+  /** IAM application service store. */
   const store = useIamStore();
   const {signIn} = store;
+  /** @type {{username: string, password: string}} Form state for sign-in command creation. */
   const form = reactive({
     username: '',
     password: ''
   })
   /**
-   * Performs the sign-in action by creating a SignInCommand
-   * with the provided username and password, and then calling
-   * the signIn method from the store. Navigation is handled
-   * automatically upon successful sign-in.
+   * Builds a SignInCommand from form state and delegates execution
+   * to IAM application services.
+   *
+   * @returns {void}
    */
   function performSignIn() {
     let signInCommand = new SignInCommand(form);

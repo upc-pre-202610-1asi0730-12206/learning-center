@@ -11,7 +11,9 @@ const router = useRouter();
 const store = usePublishingStore();
 const {errors, categories, addTutorial, updateTutorial, fetchCategories} = store;
 
+/** @type {import('vue').Ref<{title: string, summary: string, categoryId: number|string|null}>} Presentation form state mapped to Tutorial entity fields. */
 const form = ref({title: '', summary: '', categoryId: null});
+/** Determines whether the current route represents edition of an existing tutorial. */
 const isEdit = computed(() => !!route.params.id);
 
 onMounted(() => {
@@ -27,19 +29,21 @@ onMounted(() => {
 });
 
 /**
- * Retrieves a tutorial by its ID.
- * @param {string} id - The ID of the tutorial.
- * @returns {Object|null} - The tutorial object if found, null otherwise.
+ * Reads one tutorial entity from application state.
+ * @param {number|string} id - Tutorial identifier.
+ * @returns {Tutorial|undefined}
  */
 function getTutorialById(id) {
   return store.getTutorialById(id);
 }
 
+/**
+ * Creates a Tutorial entity from form state and delegates
+ * add/update behavior to Publishing application services.
+ *
+ * @returns {void}
+ */
 const saveTutorial = () => {
-  /**
-   * Saves the tutorial.
-   * If editing an existing tutorial, updates it; otherwise, adds a new tutorial.
-   */
   const tutorial = new Tutorial({
     id: isEdit.value ? route.params.id : null,
     title: form.value.title,
@@ -51,7 +55,8 @@ const saveTutorial = () => {
 };
 
 /**
- * Navigates back to the tutorials list.
+ * Navigates back to the tutorials list route.
+ * @returns {void}
  */
 const navigateBack = () => {
   router.push({name: 'publishing-tutorials'});

@@ -5,7 +5,7 @@ const signUpEndpointPath = import.meta.env.VITE_SIGNUP_ENDPOINT_PATH;
 const usersEndpointPath   = import.meta.env.VITE_USERS_ENDPOINT_PATH;
 
 /**
- * Infrastructure gateway for IAM bounded-context endpoints.
+ * Infrastructure adapter for IAM HTTP endpoints.
  *
  * @class IamApi
  * @extends BaseApi
@@ -26,7 +26,7 @@ export class IamApi extends BaseApi {
     /**
      * Sends a sign-in command to the authentication endpoint.
      * @param {import('../domain/sign-in.command.js').SignInCommand} signInRequest - Sign-in command.
-     * @returns {Promise<import('axios').AxiosResponse<Object>>} HTTP response with authentication payload.
+     * @returns {Promise<import('axios').AxiosResponse<{id: number|string, username: string, token: string}>>} HTTP response with authentication resource.
      */
     signIn(signInRequest) {
         return this.#signInEndpoint.create(signInRequest);
@@ -35,7 +35,7 @@ export class IamApi extends BaseApi {
     /**
      * Sends a sign-up command to the registration endpoint.
      * @param {import('../domain/sign-up.command.js').SignUpCommand} signUpRequest - Sign-up command.
-     * @returns {Promise<import('axios').AxiosResponse<Object>>} HTTP response with registration payload.
+     * @returns {Promise<import('axios').AxiosResponse<{message: string}>>} HTTP response with registration resource.
      */
     signUp(signUpRequest) {
         return this.#signUpEndpoint.create(signUpRequest);
@@ -43,7 +43,7 @@ export class IamApi extends BaseApi {
 
     /**
      * Retrieves users visible to the IAM context.
-     * @returns {Promise<import('axios').AxiosResponse<Array<Object>|Object>>} HTTP response with user resources.
+     * @returns {Promise<import('axios').AxiosResponse<Array<{id: number|string, username: string}>|{users:Array<{id: number|string, username: string}>}>>} HTTP response with user resources.
      */
     getUsers() {
         return this.#usersEndpoint.getAll();

@@ -12,10 +12,19 @@ const store = usePublishingStore();
 const { categories, errors, categoriesLoaded } = toRefs(store);
 const { fetchCategories, deleteCategory } = store;
 
+/** Navigates to the category creation route. */
 const navigateToNew = () => router.push({ name: 'publishing-category-new' });
 
+/**
+ * Navigates to the category edit route.
+ * @param {number|string} id - Category identifier.
+ */
 const navigateToEdit = (id) => router.push({ name: 'publishing-category-edit', params: { id } });
 
+/**
+ * Asks for user confirmation before invoking the delete category use case.
+ * @param {import('../../../publishing/domain/model/category.entity.js').Category} category - Category selected for deletion.
+ */
 const confirmDelete = (category) => {
   confirm.require({
     message: t('categories.confirm-delete', { name: category.name }),

@@ -5,8 +5,7 @@
  */
 export class SignUpResource {
     /**
-     * @param {Object} params - Resource payload.
-     * @param {string} params.message - Outcome message from the registration endpoint.
+     * @param {{message: string}} params - Resource payload.
      */
     constructor({message}) {
         this.message = message;

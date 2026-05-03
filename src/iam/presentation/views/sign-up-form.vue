@@ -4,17 +4,21 @@ import {reactive} from "vue";
 import {SignUpCommand} from "../../domain/sign-up.command.js";
 import {useRouter} from "vue-router";
 
+/** Router used to redirect after IAM use-case execution. */
 const router = useRouter();
+/** IAM application service store. */
 const store = useIamStore();
 const {signUp} = store;
+/** @type {{username: string, password: string}} Form state for sign-up command creation. */
 const form = reactive({
   username: '',
   password: ''
 })
 /**
- * Performs the sign-up action by creating a SignUpCommand
- * with the provided username and password and then calling
- * the signUp method from the store.
+ * Builds a SignUpCommand from form state and delegates execution
+ * to IAM application services.
+ *
+ * @returns {void}
  */
 function performSignUp() {
   let signUpCommand = new SignUpCommand(form);

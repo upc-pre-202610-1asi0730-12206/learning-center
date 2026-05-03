@@ -1,9 +1,21 @@
 {
   "categories": [
-    { "id": 1, "name": "JavaScript" },
-    { "id": 2, "name": "Vue" },
-    { "id": 3, "name": "CSharp" },
-    { "id": 4, "name": "ASP.NET" }
+    {
+      "id": 1,
+      "name": "JavaScript"
+    },
+    {
+      "id": 2,
+      "name": "Vue"
+    },
+    {
+      "id": 3,
+      "name": "CSharp"
+    },
+    {
+      "id": 4,
+      "name": "ASP.NET"
+    }
   ],
   "tutorials": [
     {
@@ -21,8 +33,9 @@
     {
       "id": 3,
       "title": "C# for Beginners",
-      "summary": "Getting started with C# programming.",
-      "categoryId": 3
+      "summary": "Getting started with C# programming",
+      "categoryId": 3,
+      "category": null
     },
     {
       "id": 4,

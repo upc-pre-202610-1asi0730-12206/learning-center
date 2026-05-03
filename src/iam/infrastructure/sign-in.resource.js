@@ -5,10 +5,7 @@
  */
 export class SignInResource {
     /**
-     * @param {Object} params - Resource payload.
-     * @param {string|number} params.id - Authenticated user identifier.
-     * @param {string} params.username - Authenticated username.
-     * @param {string} params.token - Bearer token.
+     * @param {{id: number|string, username: string, token: string}} params - Resource payload.
      */
     constructor({id, username, token}) {
         this.id = id;

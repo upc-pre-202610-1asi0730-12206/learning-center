@@ -156,5 +156,12 @@ Tip: if your API is running on a different port, update `VITE_LEARNING_PLATFORM_
 - Prefer explicit domain language in naming and docs.
 - Add or update docs when introducing new entities, commands, or use cases.
 
+## JSDoc Conventions (DDD)
+- In the `domain` layer, document `entity` and `command` semantics (intent, invariants, identifiers).
+- In the `application` layer, document use-case actions and observable state transitions.
+- In the `infrastructure` layer, describe `*-api` classes as adapters/gateways to external endpoints.
+- Use `resource` for transport payloads mapped by assemblers.
+- Keep `presentation` docs focused on route/view responsibilities and user interaction flow.
+
 ## License
 See `LICENSE.md`.

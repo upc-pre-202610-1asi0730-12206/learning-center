@@ -17,7 +17,7 @@ const publishingApi = new PublishingApi();
 /**
  * Reactive store that exposes Publishing commands and queries.
  *
- * @returns {Object} Store state and actions.
+ * @returns {Object} Reactive Publishing state and use-case actions.
  */
 const usePublishingStore = defineStore('publishing', () => {
     /**

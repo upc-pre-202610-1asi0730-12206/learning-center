@@ -11,15 +11,29 @@
   const store = usePublishingStore();
   const {errors, addCategory, updateCategory} = store;
 
+  /** @type {import('vue').Ref<{name: string}>} Presentation form state mapped to Category entity fields. */
   const form = ref({name: ''});
+  /** Determines whether the current route represents edition of an existing category. */
   const isEdit = computed(() => !!route.params.id);
 
+  /**
+   * Reads one category entity from application state.
+   * @param {number|string} id - Category identifier.
+   * @returns {Category|undefined}
+   */
   function getCategoryById(id) {
     return store.getCategoryById(id);
   }
 
+  /** Navigates back to the categories list route. */
   const navigateBack = () => router.push({ name: 'publishing-categories' });
 
+  /**
+   * Creates a Category entity from form state and delegates
+   * add/update behavior to Publishing application services.
+   *
+   * @returns {void}
+   */
   const saveCategory = () => {
     const category = new Category({
       id: isEdit.value ? route.params.id : null,

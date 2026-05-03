@@ -1,5 +1,5 @@
 /**
- * Command used by the IAM application layer to register a new user.
+ * Command used by IAM application services to register a new user.
  *
  * @class SignUpCommand
  */
