@@ -5,7 +5,6 @@ import useIamStore from "../application/iam.store.js";
  *
  * @param {import('vue-router').RouteLocationNormalized} to - Target route.
  * @param {import('vue-router').RouteLocationNormalized} from - Current route.
- * @param {import('vue-router').NavigationGuardNext} next - Guard continuation callback.
  * @returns {boolean | { name: string}}
  */
 export const authenticationGuard = (to, from) => {
