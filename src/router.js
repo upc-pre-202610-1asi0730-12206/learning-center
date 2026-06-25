@@ -3,6 +3,7 @@ import Home from "./shared/presentation/views/home.vue";
 import publishingRoutes from "./publishing/presentation/publishing-routes.js";
 // To import when IAM is implemented,
 import iamRoutes from "./iam/presentation/iam-routes.js";
+import {authenticationGuard} from "./iam/infrastructure/authentication.guard.js";
 
 // Define lazy-loaded components for routes
 const about = () => import('./shared/presentation/views/about.vue');
@@ -48,9 +49,9 @@ router.beforeEach((to, from, next) => {
     let baseTitle = 'ACME Learning Center';
     document.title = `${baseTitle} - ${to.meta['title']}`;
     // When IAM is implemented, use:
-    // return authenticationGuard(to, from, next);
+    return authenticationGuard(to, from, next);
     // if not, use:
-    return next();
+    // return next();
 });
 
 export default router;
